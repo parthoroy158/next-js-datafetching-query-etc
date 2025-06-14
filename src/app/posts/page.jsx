@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 export const postFetch = async () => {
@@ -10,14 +11,23 @@ const page = async () => {
     const getPost = await postFetch();
     return (
         <div>
-            <h1>Total post: {getPost.length}</h1>
-            <div className='grid grid-cols-4 gap-5 '>
+            <h1 className='text-center text-4xl m-5 font-bold'>Total post: {getPost.length}</h1>
+            <div className='grid grid-cols-3 md:grid-cols-2 lg:grid-cols-3 gap-5 '>
                 {
                     getPost.map(item => {
                         return (
-                            <div className='border-2 p-2'>
-                                <p className='font-bold'>{item.title}</p>
-                                <p>{item.body}</p>
+                            <div className="card bg-primary text-primary-content w-96">
+                                <div className="card-body  shadow-2xl">
+                                    <h2 className="card-title">{item.title}</h2>
+                                    <p>{item.body}</p>
+
+                                </div>
+                                <div className="pl-3 pr-3 pb-3">
+                                    <Link href={`/posts/${item.id}`}>
+                                        <button className="btn btn-neutral w-full">Details</button>
+                                    </Link>
+
+                                </div>
                             </div>
                         )
                     })
