@@ -10,21 +10,20 @@ export const postFetch = async () => {
 const page = async () => {
     const getPost = await postFetch();
     return (
-        <div>
-            <h1 className='text-center text-4xl m-5 font-bold'>Total post: {getPost.length}</h1>
+        <div className='min-h-screen'>
+            <h1 className='text-center text-4xl m-5 font-bold'>Total Post : {getPost.length}</h1>
             <div className='grid grid-cols-3 md:grid-cols-2 lg:grid-cols-3 gap-5 '>
                 {
                     getPost.map(item => {
                         return (
                             <div className="card bg-primary text-primary-content w-96">
                                 <div className="card-body  shadow-2xl">
-                                    <h2 className="card-title">{item.title}</h2>
+                                    <h2 className="card-title text-center">{item.title}</h2>
                                     <p>{item.body}</p>
-
                                 </div>
                                 <div className="pl-3 pr-3 pb-3">
                                     <Link href={`/posts/${item.id}`}>
-                                        <button className="btn btn-neutral w-full">Details</button>
+                                        <button className="btn btn-active hover:bg-amber-100 w-full ">Details</button>
                                     </Link>
 
                                 </div>

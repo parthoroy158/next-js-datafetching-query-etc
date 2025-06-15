@@ -3,17 +3,28 @@ import React from 'react';
 
 const Navbar = () => {
 
-    const item = <div className=' space-x-2 font-bold'>
+    const item = <div className=' space-x-2'>
+
         <Link href={'/'}>
             Home
         </Link>
+
+
         <Link href={'/about'}>
             About Us
         </Link>
+
+
         <Link href={'/posts'}>
             Post
         </Link>
-    </div>
+
+
+        <Link href={'/meals'}>
+            Meals
+        </Link>
+
+    </div >
 
 
     return (
@@ -33,7 +44,7 @@ const Navbar = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                   {item}
+                    {item}
                 </ul>
             </div>
             <div className="navbar-end">
