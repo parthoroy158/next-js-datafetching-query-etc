@@ -7,6 +7,8 @@ const SearchBar = () => {
     const router = useRouter()
     const pathname = usePathname()
 
+
+    
     useEffect(() => {
         const querySearch = { search }
         const urlSearch = new URLSearchParams(querySearch)

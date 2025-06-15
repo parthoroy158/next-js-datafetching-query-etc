@@ -1,8 +1,11 @@
 import React from 'react';
 import SearchBar from './components/SearchBar';
+import Link from 'next/link';
+
+
 
 const page = async ({ searchParams }) => {
-    const query = await searchParams.search
+    const query = searchParams?.search || '';
 
     const mealsFetch = async () => {
         const res = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`);
@@ -30,15 +33,18 @@ const page = async ({ searchParams }) => {
                                     <h2 className="card-title">{item.strMeal}</h2>
                                     <h2 className="card-title">{item.strArea}</h2>
                                     <p>{item.strCategory}</p>
-                                    <button className="btn btn-primary">Details</button>
+                                    <div className='w-full'>
+                                        <Link href={`/meals/${item.idMeal}`}>
+                                            <button className="btn btn-primary w-full">Details</button>
+                                        </Link>
+                                    </div>
                                 </div>
                             </div>
                         )
                     })
                 }
             </div>
-            <h1>This is the meals page </h1>
-        </div>
+        </div >
     );
 };
 

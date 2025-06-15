@@ -7,6 +7,13 @@ export const postFetch = async () => {
     return data
 }
 
+export const metadata = {
+    title: 'Post',
+    description: '...',
+}
+
+
+
 const page = async () => {
     const getPost = await postFetch();
     return (
